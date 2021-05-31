@@ -75,7 +75,7 @@ function modifierUnContact()
         die();
     }
 
-    $contact = Contacts::retrieveByPK($_GET['id']);
+   
 
     $messageErreur = null;
     if (isset($_POST['btn-valider']))
@@ -83,8 +83,8 @@ function modifierUnContact()
         $messageErreur = verifierPayload($_POST);
         if ($messageErreur === null)
         {
-            $article = convertirPourModification($_POST,$contact);
-            $article->save();
+            $contact = convertirPourModification($_POST,$contact);
+            $contact->save();
             
         }
     }
