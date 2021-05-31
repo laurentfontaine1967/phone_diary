@@ -53,11 +53,16 @@ function ConvertirPayload(array $data)
 //ACTION
 function AjouterUnContact()
 {  
+    session_start();
 
+    If(!isset($_SESSION["role"]))
+    {
+     header("location: /phone_diary/router.php/connexion");
+ 
+    }
+ 
   
-   session_start();
-   If( $_SESSION["role"]== "administrateur")
-   {
+   
 
  
     $contact = new Contacts();
@@ -78,5 +83,4 @@ function AjouterUnContact()
         }
     }
     require __DIR__."/../../views/ajouter_un_contact.html.php";
-}
 }

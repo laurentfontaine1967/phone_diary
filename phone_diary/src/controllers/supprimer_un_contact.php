@@ -4,9 +4,15 @@ require __DIR__."/../models/contact.php";
 
 function supprimerUnContact()
 
-{    session_start();
-    If( $_SESSION["role"]=="administrateur"){
+{   
 
+    session_start();
+
+    If(!isset($_SESSION["role"]))
+    {
+     header("location: /phone_diary/router.php/connexion");
+ 
+    }
  
     
     
@@ -31,5 +37,5 @@ function supprimerUnContact()
 
     }
 
- }
+ 
     

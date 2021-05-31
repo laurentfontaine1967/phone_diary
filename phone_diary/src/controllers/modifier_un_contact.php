@@ -39,7 +39,7 @@ require __DIR__."/../models/contact.php";
 //convertir les donnees du POST
 function ConvertirPourModification(array $data, Contacts $contact )
 {
-    
+   
     $contact->nom = $data['nom'];
     $contact->prenom= $data['prenom'];
     $contact->num_tel = $data['num_tel'];
@@ -51,17 +51,20 @@ function ConvertirPourModification(array $data, Contacts $contact )
 //ACTION
 function modifierUnContact()
 {
-   
+    
     if(isset($_GET["id"]) == false || $_GET["id"]=== "" )
    {   
       
        die();
    }
-  
-   session_start();
-   If( $_SESSION["role"]=="administrateur")
    
-{ 
+   session_start();
+
+   If(!isset($_SESSION["role"]))
+   {
+    header("location: /phone_diary/router.php/connexion");
+
+   }
 
     $contact = Contacts::retrieveById($_GET['id'], SimpleOrm::FETCH_ONE);
     
@@ -89,10 +92,8 @@ function modifierUnContact()
         }
     }
     require __DIR__."/../../views/modifier_un_contact.html.php";  
-                 
+           
 }
-} 
-
 
 
 

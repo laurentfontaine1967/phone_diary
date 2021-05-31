@@ -35,12 +35,14 @@ function authentifier()
          {
            echo "Vous etes authentifies";
            session_start();
-           setcookie("administrateur",time()+360,"/");
+          //  setcookie("administrateur",time()+360,"/");
            $_SESSION["role"]= "administrateur";
           }
           else {$messageErreur="Vos identifiants sont incorrects";
-              
-              
+           session_start();
+           session_destroy();   
+           unset($_SESSION['role']);
+           var_dump($_SESSION);
           }
          
       }
