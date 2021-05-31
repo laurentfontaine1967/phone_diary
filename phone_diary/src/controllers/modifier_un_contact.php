@@ -39,7 +39,7 @@ require __DIR__."/../models/contact.php";
 //convertir les donnees du POST
 function ConvertirPourModification(array $data, Contacts $contact )
 {
-    $contact = new Contacts();
+    
     $contact->nom = $data['nom'];
     $contact->prenom= $data['prenom'];
     $contact->num_tel = $data['num_tel'];
