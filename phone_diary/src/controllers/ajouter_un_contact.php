@@ -56,7 +56,7 @@ function AjouterUnContact()
 
   
    session_start();
-   If( $_SESSION["role"]= "administrateur")
+   If( $_SESSION["role"]== "administrateur")
    {
 
  

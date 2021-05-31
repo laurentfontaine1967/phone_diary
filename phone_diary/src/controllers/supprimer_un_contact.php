@@ -5,7 +5,7 @@ require __DIR__."/../models/contact.php";
 function supprimerUnContact()
 
 {    session_start();
-    If( $_SESSION["role"]= "administrateur"){
+    If( $_SESSION["role"]=="administrateur"){
 
  
     
